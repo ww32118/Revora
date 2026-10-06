@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Light theme (default) ---------- */
+:root {
+  --bg: #fff9fb; /* Snow */
+  --surface: #ffffff;
+  --surface-muted: #e9eaec; /* Platinum */
+  --text: #252627; /* Carbon Black */
+  --text-muted: rgba(37, 38, 39, 0.62);
+  --border: rgba(37, 38, 39, 0.08);
+  --primary: #bb0a21; /* Brick Red */
+  --primary-contrast: #ffffff;
+  --secondary: #4b88a2; /* Air Force Blue */
+  --nav-bg: #252627;
+  --nav-text: #fff9fb;
+  --code-bg: #252627;
+  --code-text: #e9eaec;
+}
+
+/* ---------- Dark theme ---------- */
+.dark {
+  --bg: #221e22;
+  --surface: #31263e;
+  --surface-muted: #44355b;
+  --text: #f4eef7;
+  --text-muted: rgba(244, 238, 247, 0.65);
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #ee5622;
+  --primary-contrast: #221e22;
+  --secondary: #eca72c;
+  --nav-bg: #221e22;
+  --nav-text: #f4eef7;
+  --code-bg: #150f18;
+  --code-text: #e9d9f5;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-logo {
+  font-family: var(--font-passero), cursive;
+}
+
+/* ---------- Motion ---------- */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInUp 0.6s ease-out both;
+}
+.animate-fadeIn-delay-1 {
+  animation: fadeInUp 0.6s ease-out 0.15s both;
+}
+.animate-fadeIn-delay-2 {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+.animate-fadeIn-delay-3 {
+  animation: fadeInUp 0.6s ease-out 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .animate-fadeIn-delay-1,
+  .animate-fadeIn-delay-2,
+  .animate-fadeIn-delay-3 {
+    animation: none;
+  }
+}
+
+/* ---------- Native select/option theming ---------- */
+select {
+  background-color: var(--surface-muted);
+  color: var(--text);
+}
+
+select option {
+  background-color: var(--surface-muted);
+  color: var(--text);
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background-color: var(--secondary) !important;
+  color: var(--primary-contrast) !important;
+}

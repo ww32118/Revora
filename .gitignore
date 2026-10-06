@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════
+# Revora — Monorepo .gitignore
+# ═══════════════════════════════════════════════════
+
+# ─── IDE ───────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+
+# ─── OS ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Backend (Java / Spring Boot) ──────────────────
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# ─── Frontend (Next.js) ────────────────────────────
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# ─── Secrets (CRITICAL) ────────────────────────────
+**/application-local.properties
+**/.env
+**/.env.local
+**/*.secret
+
+# ─── Logs ──────────────────────────────────────────
+*.log
+logs/
+**/logs/
